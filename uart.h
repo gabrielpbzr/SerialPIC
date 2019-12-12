@@ -24,6 +24,12 @@ void uart_init(unsigned short baudRate);
 void uart_send(unsigned char byte);
 
 /**
+ * Send a string through UART
+ * @param string to send
+ */
+void uart_send_string(const char* str);
+
+/**
  * Receive a byte through UART
  * @return byte read
  */

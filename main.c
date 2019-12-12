@@ -19,10 +19,7 @@ void main(void) {
     setup();
     for(;;) {
         if (!RA1) {
-            uart_send('O');
-            uart_send('K');
-            uart_send('\r');
-            uart_send('\n');
+            uart_send_string("OK\r\n");
             __delay_ms(300);
         }
     }

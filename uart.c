@@ -30,10 +30,16 @@ void uart_send(unsigned char byte) {
     TXREG = byte;
 }
 //==============================================================================
-unsigned char uart_read(void) {
-    while(!RCIF) {
-        //Wait for reception 
+void uart_send_string(const char* str) {
+    while(!TXIF) {
+        // Wait for last transmission finish
     }
+    //Put data on TXREG register to send
+    while(*str)
+        uart_send((unsigned char)*str++);
+}
+//==============================================================================
+unsigned char uart_read(void) {
     /* 
      * If we have an overrun error, reset CREN register 
      * in order to clear OERR bit
@@ -41,6 +47,10 @@ unsigned char uart_read(void) {
     if (OERR) {
         CREN = 0;
         CREN = 1;
+    }
+    
+    while(!RCIF) {
+        //Wait for reception 
     }
     // Read data from register RCREG
     unsigned char data = RCREG;
