@@ -1,4 +1,5 @@
 #include "uart.h"
+
 //==============================================================================
 void uart_init(unsigned short baudrate) {
     TRISB1 = 0x01; // RX Pin
@@ -27,7 +28,6 @@ void uart_send(unsigned char byte) {
     }
     //Put data on TXREG register to send
     TXREG = byte;
-
 }
 //==============================================================================
 unsigned char uart_read(void) {

@@ -7,6 +7,7 @@
 
 #include <xc.h>
 #include "uart.h"
+
 #define BAUDRATE 9600
 
 void setup() {
