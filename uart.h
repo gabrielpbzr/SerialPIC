@@ -9,6 +9,7 @@
 #define	UART_H
 
 #include <xc.h>
+#include "definitions.h"
 
 /**
  * Initialize serial communication

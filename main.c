@@ -7,7 +7,6 @@
 
 #include <xc.h>
 #include "uart.h"
-#define _XTAL_FREQ 16000000L //Hz
 #define BAUDRATE 9600
 
 void setup() {

@@ -1,5 +1,4 @@
 #include "uart.h"
-#define _XTAL_FREQ 16000000L
 //==============================================================================
 void uart_init(unsigned short baudrate) {
     TRISB1 = 0x01; // RX Pin
