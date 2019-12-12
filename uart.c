@@ -16,7 +16,7 @@ void uart_init(unsigned short baudrate) {
     RX9 = 0;  // 8-bit reception
     SYNC = 0; // Asynchronous mode
     CREN = 1; // Enable continuous receive mode (RCSTA Register)
-    
+
     GIE = 1; // Enable Global Interrupts
     PEIE = 1; //Enable Peripheral Interrupts
 }
@@ -31,7 +31,20 @@ void uart_send(unsigned char byte) {
 }
 //==============================================================================
 unsigned char uart_read(void) {
-    //TODO Implement
-    return 0;
+    while(!RCIF) {
+        //Wait for reception 
+    }
+    /* 
+     * If we have an overrun error, reset CREN register 
+     * in order to clear OERR bit
+     */
+    if (OERR) {
+        CREN = 0;
+        CREN = 1;
+    }
+    // Read data from register RCREG
+    unsigned char data = RCREG;
+    
+    return data;
 }
 //==============================================================================

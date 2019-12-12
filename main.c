@@ -20,6 +20,7 @@ void main(void) {
         uart_send('K');
         uart_send('\r');
         uart_send('\n');
+        __delay_ms(1000);
     }
     return;
 }
