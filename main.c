@@ -5,9 +5,9 @@
  * Created on December 11, 2019, 12:26 PM
  */
 
+#include "config.h"
 #include <xc.h>
 #include "uart.h"
-
 #define BAUDRATE 9600
 
 void setup() {
